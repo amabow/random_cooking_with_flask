@@ -5,7 +5,7 @@
 <ul>
   <li>Windows10 64bit</li>
   <li>Flask ver1.1.2</li>
-  <li>PostgresSQL ver12.2</li>
+  <li>PostgreSQL ver12.2</li>
   <li>JinJa2 ver2.11.2</li>
   <li>SQLAlchemy ver1.3.18</li>
   <li>flask_migrate ver2.5.3</li>
