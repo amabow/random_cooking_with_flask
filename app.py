@@ -21,8 +21,6 @@ class Meal(db.Model):
     def __repr__(self):
         return '<name %r >' % self.name
 
-db.create_all()
-
 @app.route("/")
 def index():
     meal = Meal.query.all()
