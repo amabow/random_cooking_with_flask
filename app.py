@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.utils import secure_filename
 from flask_migrate import Migrate
 
 import random
