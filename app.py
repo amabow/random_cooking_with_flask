@@ -15,6 +15,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 class Meal(db.Model):
+    __tablename__ = 'meal'
     id = db.Column(db.Integer, primary_key = True, unique = True)
     name = db.Column(db.String(20), index = True, unique = True)
     def __repr__(self):
