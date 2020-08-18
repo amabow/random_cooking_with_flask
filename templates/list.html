@@ -9,24 +9,39 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <a class="navbar-brand" href="/">ランダム料理選択</a>
+        <a class="navbar-brand" href="/">ランダムメニュー</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">ホーム</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">ホーム<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about">ランダムメニューについて</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/list">登録済みのメニュー<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/list">登録済みのメニュー</a>
                 </li>
+                {% if current_user.is_authenticated %}
+                <li>
+                    <div style="color: rgba(255, 255, 255, 0.8);">{{current_user.name}} でログイン中。(id: {{current_user.id}})</div>
+                </li>
+                <li>
+                    <a class="nav-link" href="/meal">ランダムメニュー</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="nav-link" href="/login">ログイン</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/register">新規登録</a>
+                </li>
+                {% endif %}
             </ul>
             <span class="navbar-text">
-              <a href="/register" class="btn btn-primary">メニュー登録</a>
+                <a href="/register_menu" class="btn btn-primary">メニュー登録</a>
             </span>
           </div>
     </nav>
