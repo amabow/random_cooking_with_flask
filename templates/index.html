@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <a class="navbar-brand" href="/">ランダム料理選択</a>
+        <a class="navbar-brand" href="/">ランダムメニュー</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,19 +24,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/list">登録済みのメニュー</a>
                 </li>
-                </ul>
+                {% if current_user.is_authenticated %}
+                <li>
+                    <div style="color: rgba(255, 255, 255, 0.8);">{{current_user.name}} でログイン中。(id: {{current_user.id}})</div>
+                </li>
+                <li>
+                    <a class="nav-link" href="/meal">ランダムメニュー</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="nav-link" href="/login">ログイン</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/register">新規登録</a>
+                </li>
+                {% endif %}
+            </ul>
             <span class="navbar-text">
-                <a href="/register" class="btn btn-primary">メニュー登録</a>
+                <a href="/register_menu" class="btn btn-primary">メニュー登録</a>
             </span>
           </div>
     </nav>
     <div class="jumbotron">
         <h1>「今日のご飯何にしようかなー」の時間、減らせます</h1>
-        <p>もう今日のご飯は決まっています。下のボタンをクリックして見てみましょう！</p>
-    </div>
-    <div class="random_menu">
-        <button type="button" class="btn btn-primary" onclick="show_meal()">メニュー表示</button>
-        <div id="meal" style="display: none;">今日のご飯に… {{meal}}はいかがでしょうか？（お気に召さない場合は再読み込みして、もう一度ボタンをクリックしてください）</div>
     </div>
     
 </body>
